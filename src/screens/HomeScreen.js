@@ -14,23 +14,25 @@ import {
   getFamilyMovies,
   getDocumentaryMovies,
 } from '../services/fetchData';
-import {typeOfConection} from '../components/netInfo/NetInfoUsage';
 import FlashMessage from 'react-native-flash-message';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import fontFamilies from '../styles/fontFamilies';
-import {DeviceInfoDetail} from '../components/deviceInfo/DeviceInfoDetail';
 import react from 'react';
+
+import {typeOfConection} from '../components/netInfo/NetInfoUsage';
+import {DeviceInfoDetail} from '../components/deviceInfo/DeviceInfoDetail';
 import {Error} from '../components/Error';
 import {NetInfoUsage} from '../components/netInfo/NetInfoUsage';
 import {SliderBox} from 'react-native-image-slider-box';
 import {MovieList} from '../components/MovieList';
 import {showMessage} from 'react-native-flash-message';
-// import {Animation} from '../components/animation/Animation';
+import {Animation} from '../components/animation/Animation';
 import {RenderHtmlText} from '../components/RenderHTML/RenderHtmlText';
 import {DatePickerModal} from '../components/datePicker/DatePicker';
 import {ClipboardExample} from '../components/clipboard/ClipboardComponent';
-import Coopilot from '../components/Coopilot';
+import CopilotComponent from '../components/copilot/Coopilot';
 import {ShareComponent} from '../components/socialShare/ShareComponent';
+import {DoubleClickAnimation} from '../components/animation/DoubleClickAnimation';
 
 const dimentions = Dimensions.get('screen');
 
@@ -60,6 +62,7 @@ export const HomeScreen = ({navigation}) => {
       description: typeOfConection,
       type: 'info',
       color: '#fff',
+      duration: 5000,
     });
 
     getData()
@@ -109,7 +112,7 @@ export const HomeScreen = ({navigation}) => {
               />
             </View>
           )}
-          <Coopilot />
+          <CopilotComponent />
 
           <View style={styles.contactsWrapper}>
             <View style={styles.contacts}>
@@ -121,8 +124,6 @@ export const HomeScreen = ({navigation}) => {
             </View>
             <ShareComponent />
           </View>
-
-          {/* <Animation /> */}
 
           {/* Popular Movies */}
           {popularMovies && (
@@ -181,6 +182,10 @@ export const HomeScreen = ({navigation}) => {
             <Text style={styles.text}>This is Device Info example</Text>
             <DeviceInfoDetail />
           </View>
+
+          {/* <Animation /> */}
+          <DoubleClickAnimation />
+
           <NetInfoUsage />
         </ScrollView>
       )}

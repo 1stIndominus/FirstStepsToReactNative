@@ -30,7 +30,7 @@ export const Animation = () => {
   useEffect(() => {
     progress.value = withRepeat(withSpring(0.5), -1, true);
     scale.value = withRepeat(withSpring(1), -1, true);
-  }, []);
+  }, [progress, scale]);
 
   return (
     <View style={styles.container}>
@@ -50,5 +50,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
+    zIndex: 99,
   },
 });

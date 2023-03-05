@@ -6759,10 +6759,10 @@
   dependencies:
     "lodash" "^4.17.15"
 
-"react-native-reanimated@^3.0.0", "react-native-reanimated@>=2.2.0":
-  "integrity" "sha512-GPyUrLZHK+kou0I5PTMWNUkAaJ26ndk/MD2hcA1F8U69RSMmtzJuKUxK2C7uz3Y72W1eFunuDgsNCoLi0+W1vg=="
-  "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.0.0.tgz"
-  "version" "3.0.0"
+"react-native-reanimated@^3.0.1", "react-native-reanimated@>=2.2.0":
+  "integrity" "sha512-zesX0VwzqUjcD6aY+jlDLqZWMn/nUx8RfIRHUMEn0NzcFHXk3TnMkWL2K/gx4k6NOMhtaBAx866ShRtR+i1hgQ=="
+  "resolved" "https://registry.npmjs.org/react-native-reanimated/-/react-native-reanimated-3.0.1.tgz"
+  "version" "3.0.1"
   dependencies:
     "@babel/plugin-transform-object-assign" "^7.16.7"
     "@babel/preset-typescript" "^7.16.7"
