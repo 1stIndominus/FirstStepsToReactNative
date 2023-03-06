@@ -15,8 +15,6 @@ import {
   getDocumentaryMovies,
 } from '../services/fetchData';
 import FlashMessage from 'react-native-flash-message';
-import EStyleSheet from 'react-native-extended-stylesheet';
-import fontFamilies from '../styles/fontFamilies';
 import react from 'react';
 
 import {typeOfConection} from '../components/netInfo/NetInfoUsage';
@@ -26,7 +24,7 @@ import {NetInfoUsage} from '../components/netInfo/NetInfoUsage';
 import {SliderBox} from 'react-native-image-slider-box';
 import {MovieList} from '../components/MovieList';
 import {showMessage} from 'react-native-flash-message';
-import {Animation} from '../components/animation/Animation';
+// import {Animation} from '../components/animation/Animation';
 import {RenderHtmlText} from '../components/RenderHTML/RenderHtmlText';
 import {DatePickerModal} from '../components/datePicker/DatePicker';
 import {ClipboardExample} from '../components/clipboard/ClipboardComponent';
@@ -34,6 +32,7 @@ import CopilotComponent from '../components/copilot/Coopilot';
 import {ShareComponent} from '../components/socialShare/ShareComponent';
 import {DoubleClickAnimation} from '../components/animation/DoubleClickAnimation';
 import {EncryptedStorageComponent} from '../components/storage/EncryptedStorage';
+import {styles} from './HomeScreenStyles';
 
 const dimentions = Dimensions.get('screen');
 
@@ -202,41 +201,5 @@ export const HomeScreen = ({navigation}) => {
     </react.Fragment>
   );
 };
-
-const styles = EStyleSheet.create({
-  container: {
-    backgroundColor: 'lightgrey',
-  },
-  sliderContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 80,
-    backgroundColor: 'lightgrey',
-  },
-  sliderStyle: {
-    height: 0,
-  },
-  carousel: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'lightgrey',
-    alignItems: 'center',
-  },
-  text: {
-    paddingBottom: 10,
-    fontFamily: fontFamilies.saira.black,
-    color: '#B312A8',
-  },
-  contacts: {
-    width: 150,
-  },
-  contactsWrapper: {
-    marginBottom: 60,
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
-  },
-});
 
 export default HomeScreen;

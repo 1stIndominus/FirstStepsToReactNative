@@ -6942,7 +6942,7 @@
     "react-shallow-renderer" "^16.15.0"
     "scheduler" "^0.23.0"
 
-"react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 17.0.1", "react@>=15.0.0", "react@>=16.0", "react@>=16.3.0", "react@>=16.8", "react@>=17.0.0", "react@18.2.0":
+"react@*", "react@^16.0.0 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^18.2.0", "react@>= 17.0.1", "react@>=15.0.0", "react@>=16.0", "react@>=16.3.0", "react@>=16.8", "react@>=16.8.0", "react@>=17.0.0", "react@18.2.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"
@@ -8033,6 +8033,11 @@
   "integrity" "sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg=="
   "resolved" "https://registry.npmjs.org/urix/-/urix-0.1.0.tgz"
   "version" "0.1.0"
+
+"use-debounce@^9.0.3":
+  "integrity" "sha512-FhtlbDtDXILJV7Lix5OZj5yX/fW1tzq+VrvK1fnT2bUrPOGruU9Rw8NCEn+UI9wopfERBEZAOQ8lfeCJPllgnw=="
+  "resolved" "https://registry.npmjs.org/use-debounce/-/use-debounce-9.0.3.tgz"
+  "version" "9.0.3"
 
 "use-event-callback@^0.1.0":
   "integrity" "sha512-5fTzY5UEXHMK5UR0NRkUz6TPfWmmX9fO8Tx3SnHrfMPdrQ7Rna0gDBy0r56SP68TwsP9DgwSBzeysCu3A/Z2NA=="

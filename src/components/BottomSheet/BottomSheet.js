@@ -1,7 +1,8 @@
 import React, {useCallback, useMemo, useRef} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, Text} from 'react-native';
 // import RBSheet from 'react-native-raw-bottom-sheet';
 import {BottomSheet} from '@gorhom/bottom-sheet';
+import {styles} from './styles';
 
 export const BottomSheets = () => {
   const BottomSheetRef = useRef(null);
@@ -24,17 +25,5 @@ export const BottomSheets = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'grey',
-    padding: 25,
-  },
-  content: {
-    flex: 1,
-    alignItems: 'center',
-  },
-});
 
 export default BottomSheet;

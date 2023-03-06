@@ -1,24 +1,20 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import {
   View,
-  StyleSheet,
   Text,
   ScrollView,
   Image,
-  Dimensions,
   ActivityIndicator,
   Modal,
 } from 'react-native';
 import {getMovie} from '../services/fetchData';
 import {PlayButton} from '../components/PlayButton';
-// import StarRating from 'react-native-star-rating';
 import {Rating} from 'react-native-ratings';
-// import StarRating from 'react-native-star-rating-widget';
 import dateFormat from 'dateformat';
 import {Video} from '../components/Video';
+import {styles} from './DetailScreenStyles';
 
 const placeholderImage = require('../../assets/images/placeholder.png');
-const height = Dimensions.get('screen').height;
 
 export const DetailScreen = ({route, navigation}) => {
   const movieId = route.params.movieId;
@@ -101,47 +97,3 @@ export const DetailScreen = ({route, navigation}) => {
     </React.Fragment>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#fff',
-  },
-  image: {
-    height: height / 2.5,
-  },
-  movieTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  genresContainer: {
-    flexDirection: 'row',
-    alignContent: 'center',
-    marginTop: 20,
-    marginBottom: 20,
-  },
-  genre: {
-    marginRight: 10,
-    fontWeight: 'bold',
-  },
-  overview: {
-    padding: 15,
-  },
-  release: {
-    fontWeight: 'bold',
-  },
-  playButton: {
-    position: 'absolute',
-    top: -25,
-    right: 20,
-  },
-  videoModal: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-});

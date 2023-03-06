@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, ActivityIndicator} from 'react-native';
+import {View, Text, ActivityIndicator} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
+import {styles} from './styles';
 
 export const GeolocationComponent = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
@@ -49,15 +50,3 @@ export const GeolocationComponent = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  map: {
-    width: '100%',
-    height: '100%',
-  },
-});

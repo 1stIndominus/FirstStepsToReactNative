@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text} from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
-import EStyleSheet from 'react-native-extended-stylesheet';
+import {styles} from './styles';
 
 export let typeOfConection = '';
 
@@ -37,14 +37,3 @@ export const NetInfoUsage = () => {
     </View>
   );
 };
-
-const styles = EStyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: 'red',
-  },
-});

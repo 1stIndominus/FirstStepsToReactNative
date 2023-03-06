@@ -1,10 +1,14 @@
 import React, {useCallback, useState} from 'react';
-import {View, TextInput, Button, Alert, StyleSheet} from 'react-native';
+import {View, TextInput, Button, Alert} from 'react-native';
 import EncryptedStorage from 'react-native-encrypted-storage';
+// import {useDebounce} from 'use-debounce';
+import {styles} from './styles';
 
 export const EncryptedStorageComponent = () => {
   const [value, setValue] = useState('');
   const [encryptedData, setEncryptedData] = useState('');
+
+  // const [debouncedText] = useDebounce(value, 1000);
 
   const handleSave = useCallback(() => {
     EncryptedStorage.setItem('key', value)
@@ -54,24 +58,3 @@ export const EncryptedStorageComponent = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: '#BBBBC5',
-    padding: 10,
-    borderRadius: 8,
-  },
-  input: {
-    borderWidth: 1,
-    padding: 10,
-  },
-  wrapper: {
-    flexDirection: 'row',
-    height: 50,
-  },
-  text: {
-    color: 'black',
-  },
-});

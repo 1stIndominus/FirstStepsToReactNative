@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import DatePicker from 'react-native-date-picker';
-import {Text, View, Button, StyleSheet} from 'react-native';
-import EStyleSheet from 'react-native-extended-stylesheet';
+import {Text, View, Button} from 'react-native';
+import {styles} from './styles';
 
 export const DatePickerModal = () => {
   const [date, setDate] = useState(new Date());
@@ -46,17 +46,3 @@ export const DatePickerModal = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  dateContainer: {
-    backgroundColor: '#8EC5FC',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 150,
-    height: 50,
-    borderBottomEndRadius: 20,
-  },
-  text: {
-    color: '#1D9085',
-  },
-});

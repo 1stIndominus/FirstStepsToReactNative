@@ -1,13 +1,8 @@
 import React, {useCallback, useState} from 'react';
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
+import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 // import Config from 'react-native-config';
+import {styles} from './styles';
 
 export const DeviceInfoDetail = () => {
   const [deviceId, setDeviceId] = useState('');
@@ -58,32 +53,3 @@ export const DeviceInfoDetail = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97D9E1',
-    padding: 20,
-    borderRadius: 8,
-  },
-  title: {
-    color: 'red',
-  },
-  buttonText: {
-    width: 100,
-    height: 20,
-    borderRadius: 8,
-    backgroundColor: '#0C9E89',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  text: {
-    color: '#fff',
-  },
-  buttonWrapper: {
-    flexDirection: 'row',
-    gap: 20,
-  },
-});

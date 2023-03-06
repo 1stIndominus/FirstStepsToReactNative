@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {copilot, walkthroughable, CopilotStep} from 'react-native-copilot';
-import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
-import fontFamilies from '../../styles/fontFamilies';
-import EStyleSheet from 'react-native-extended-stylesheet';
+import {Text, View, SafeAreaView} from 'react-native';
+import {styles} from './styles';
 
 export const CopilotComponent = props => {
   const [secondStep, setSecondStep] = useState(true);
@@ -35,24 +34,5 @@ export const CopilotComponent = props => {
     </SafeAreaView>
   );
 };
-
-const styles = EStyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'grey',
-    alignItems: 'center',
-    padding: 10,
-    justifyContent: 'center',
-    width: '100%',
-    height: 150,
-    borderRadius: 10,
-    marginBottom: 50,
-  },
-  titleStyle: {
-    textAlign: 'center',
-    fontSize: 18,
-    fontFamily: 'Smokum-Regular',
-  },
-});
 
 export default copilot()(CopilotComponent);
