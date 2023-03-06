@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import {View, Text, Button, StyleSheet} from 'react-native';
 import Clipboard from '@react-native-clipboard/clipboard';
 
@@ -6,15 +6,17 @@ export const ClipboardExample = () => {
   const [copiedText, setCopiedText] = useState('');
   const [isVisible, setIsvisible] = useState(false);
 
-  const handleCopyText = () => {
+  const handleCopyText = useCallback(() => {
     Clipboard.setString('npx react-native start');
-  };
+  }, []);
 
-  const fetchCopiedText = async () => {
+  const fetchCopiedText = useCallback(async () => {
     const copied = await Clipboard.getString();
-    setCopiedText(copied);
-    setIsvisible(true);
-  };
+    if (copied) {
+      setCopiedText(copied);
+      setIsvisible(true);
+    }
+  }, []);
 
   return (
     <View style={styles.container}>

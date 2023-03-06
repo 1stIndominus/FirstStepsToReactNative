@@ -33,6 +33,7 @@ import {ClipboardExample} from '../components/clipboard/ClipboardComponent';
 import CopilotComponent from '../components/copilot/Coopilot';
 import {ShareComponent} from '../components/socialShare/ShareComponent';
 import {DoubleClickAnimation} from '../components/animation/DoubleClickAnimation';
+import {EncryptedStorageComponent} from '../components/storage/EncryptedStorage';
 
 const dimentions = Dimensions.get('screen');
 
@@ -185,6 +186,11 @@ export const HomeScreen = ({navigation}) => {
 
           {/* <Animation /> */}
           <DoubleClickAnimation />
+
+          <View style={styles.sliderContainer}>
+            <Text style={styles.text}>This is EncryptedStorage example</Text>
+            <EncryptedStorageComponent />
+          </View>
 
           <NetInfoUsage />
         </ScrollView>
