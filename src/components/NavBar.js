@@ -14,6 +14,7 @@ export const Navbar = ({navigation, main = false}) => {
       {main ? (
         <View style={styles.mainNav}>
           <TouchableOpacity
+            testID="MyButton"
             onPress={() => {
               navigation.navigate('Map');
             }}>

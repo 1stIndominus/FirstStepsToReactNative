@@ -4,7 +4,7 @@ import {Text, View, SafeAreaView} from 'react-native';
 import {styles} from './styles';
 
 export const CopilotComponent = props => {
-  const [secondStep, setSecondStep] = useState(true);
+  const [secondStep] = useState(true);
   const WalkthroughableText = walkthroughable(Text);
 
   useEffect(() => {

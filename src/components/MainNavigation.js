@@ -5,6 +5,7 @@ import {HomeScreen} from '../screens/HomeScreen';
 import {DetailScreen} from '../screens/DetailScreen';
 import {GeolocationComponent} from './geolocation/GeolocationComponent';
 import {GetContactComponent} from './getContact/GetContactComponent';
+
 const Stack = createNativeStackNavigator();
 
 export const MainNavigation = () => {

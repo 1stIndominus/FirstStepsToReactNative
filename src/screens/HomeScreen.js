@@ -25,6 +25,8 @@ import {SliderBox} from 'react-native-image-slider-box';
 import {MovieList} from '../components/MovieList';
 import {showMessage} from 'react-native-flash-message';
 // import {Animation} from '../components/animation/Animation';
+import BottomSheetComponent from '../components/BottomSheet/BottomSheet';
+
 import {RenderHtmlText} from '../components/RenderHTML/RenderHtmlText';
 import {DatePickerModal} from '../components/datePicker/DatePicker';
 import {ClipboardExample} from '../components/clipboard/ClipboardComponent';
@@ -112,6 +114,7 @@ export const HomeScreen = ({navigation}) => {
               />
             </View>
           )}
+
           <CopilotComponent />
 
           <View style={styles.contactsWrapper}>

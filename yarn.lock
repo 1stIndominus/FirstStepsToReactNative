@@ -4204,7 +4204,7 @@
   dependencies:
     "source-map" "^0.7.3"
 
-"hoist-non-react-statics@^3.0.1", "hoist-non-react-statics@^3.3.0":
+"hoist-non-react-statics@^3.0.1", "hoist-non-react-statics@^3.3.0", "hoist-non-react-statics@3.x.x":
   "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
   "resolved" "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz"
   "version" "3.3.2"
@@ -5338,7 +5338,7 @@
   "resolved" "https://registry.npmjs.org/lodash.throttle/-/lodash.throttle-4.1.1.tgz"
   "version" "4.1.1"
 
-"lodash@^4.0.0", "lodash@^4.16.4", "lodash@^4.17.15", "lodash@^4.17.21":
+"lodash@^4.0.0", "lodash@^4.16.4", "lodash@^4.17.15", "lodash@^4.17.21", "lodash@4.17.x":
   "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
   "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
@@ -6530,7 +6530,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@*", "prop-types@^15.5.10", "prop-types@^15.5.7", "prop-types@^15.6.1", "prop-types@^15.7.2", "prop-types@^15.8.1":
+"prop-types@*", "prop-types@^15.5.10", "prop-types@^15.5.7", "prop-types@^15.6.1", "prop-types@^15.7.2", "prop-types@^15.8.1", "prop-types@15.x.x":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -6632,6 +6632,11 @@
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-lifecycles-compat@2.0.0":
+  "integrity" "sha512-txfpPCQYiazVdcbMRhatqWKcAxJweUu2wDXvts5/7Wyp6+Y9cHojqXHsLPEckzutfHlxZhG8Oiundbmp8Fd6eQ=="
+  "resolved" "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-2.0.0.tgz"
+  "version" "2.0.0"
 
 "react-native-animatable@^1.2.4":
   "integrity" "sha512-2ckIxZQAsvWn25Ho+DK3d1mXIgj7tITkrS4pYDvx96WyOttSvzzFeQnM2od0+FUMzILbdHDsDEqZvnz1DYNQ1w=="
@@ -6747,6 +6752,17 @@
   "version" "1.4.0"
   dependencies:
     "@types/geojson" "^7946.0.8"
+
+"react-native-navigation@^7.32.1":
+  "integrity" "sha512-qqpccWh6MqTG0hn/XeggKonSYg+h64kOsYBot/+g2EUC/Usp8TZsKi1B2gzsUrDQy8EmsF9iTBoZMIgjxFG/WQ=="
+  "resolved" "https://registry.npmjs.org/react-native-navigation/-/react-native-navigation-7.32.1.tgz"
+  "version" "7.32.1"
+  dependencies:
+    "hoist-non-react-statics" "3.x.x"
+    "lodash" "4.17.x"
+    "prop-types" "15.x.x"
+    "react-lifecycles-compat" "2.0.0"
+    "tslib" "1.9.3"
 
 "react-native-paper@^5.2.0":
   "integrity" "sha512-FfKvfh4nBvetTusiuc1QMuNxXdNai4lthoyD+dNPM03RnIapcjoKHrhCD1EvVi5c1kBSKHrlXQ3OAW/8QCQXNw=="
@@ -7886,6 +7902,11 @@
   "integrity" "sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.5.0.tgz"
   "version" "2.5.0"
+
+"tslib@1.9.3":
+  "integrity" "sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.9.3.tgz"
+  "version" "1.9.3"
 
 "tsutils@^3.21.0":
   "integrity" "sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA=="

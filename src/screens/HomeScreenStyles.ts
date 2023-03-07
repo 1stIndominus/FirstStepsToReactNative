@@ -35,4 +35,17 @@ export const styles = EStyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
+  bottomContainer: {
+    flex: 1,
+    backgroundColor: '#111',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    height: 50,
+    borderRadius: 25,
+    aspectRatio: 1,
+    backgroundColor: 'white',
+    opacity: 0.6,
+  },
 });

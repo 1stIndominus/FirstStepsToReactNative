@@ -1,17 +1,56 @@
-import React from 'react';
+import React, {useRef, useCallback} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {MainNavigation} from './src/components/MainNavigation';
-// import BottomPanel from './src/screens/BottomPanel';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import BottomSheet, {
+  BottomSheetRefProps,
+} from './src/components/BottomSheet/BottomSheet';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 export function App() {
+  const ref = useRef<BottomSheetRefProps>(null);
+
+  const onPress = useCallback(() => {
+    const isActive = ref?.current?.isActive();
+    if (isActive) {
+      ref?.current?.scrollTo(0);
+    } else {
+      ref?.current?.scrollTo(-1000);
+    }
+  }, []);
+
   return (
     <>
       <NavigationContainer>
         <MainNavigation />
-        {/* <BottomPanel /> */}
+        <GestureHandlerRootView>
+          <View style={styles.container}>
+            <TouchableOpacity style={styles.button} onPress={onPress}>
+              <BottomSheet ref={ref}>
+                <View style={{flex: 1, backgroundColor: 'grey'}} />
+              </BottomSheet>
+            </TouchableOpacity>
+          </View>
+        </GestureHandlerRootView>
       </NavigationContainer>
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#111',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    height: 50,
+    borderRadius: 25,
+    aspectRatio: 8,
+    backgroundColor: '#fff',
+    opacity: 0.8,
+  },
+});
 
 export default App;

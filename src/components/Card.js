@@ -17,7 +17,11 @@ export const Card = ({item, navigation}) => {
             : placeholderImage
         }
       />
-      {!item.poster_path && <Text style={styles.movieName}>{item.title}</Text>}
+      {!item.poster_path && (
+        <Text testID="MyText" style={styles.movieName}>
+          {item.title}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };
