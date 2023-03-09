@@ -4,6 +4,14 @@ import {Image, TouchableOpacity, StyleSheet, Text} from 'react-native';
 const placeholderImage = require('../../assets/images/placeholder.png');
 
 export const Card = ({item, navigation}) => {
+  if (!item.poster_path) {
+    return (
+      <Text testID="MyText" style={styles.movieName}>
+        {item.title}
+      </Text>
+    );
+  }
+
   return (
     <TouchableOpacity
       style={styles.container}
@@ -17,11 +25,6 @@ export const Card = ({item, navigation}) => {
             : placeholderImage
         }
       />
-      {!item.poster_path && (
-        <Text testID="MyText" style={styles.movieName}>
-          {item.title}
-        </Text>
-      )}
     </TouchableOpacity>
   );
 };
@@ -43,6 +46,5 @@ const styles = StyleSheet.create({
     width: 100,
     top: 10,
     textAlign: 'center',
-    // color: '#fff',
   },
 });

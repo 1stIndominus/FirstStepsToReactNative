@@ -37,7 +37,7 @@ export const EncryptedStorageComponent = () => {
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        <Button title="Save" onPress={handleSave} />
+        <Button testID="Save" title="Save" onPress={handleSave} />
         <TextInput
           style={styles.input}
           value={value}

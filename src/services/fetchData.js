@@ -41,3 +41,13 @@ export const getMovie = async id => {
   const resp = await axios.get(`${apiUrl}/movie/${id}?${apiKey}`);
   return resp.data;
 };
+
+export const getData = () => {
+  return Promise.all([
+    getUpcomingMovies(),
+    getPopularMovies(),
+    getPopularTv(),
+    getFamilyMovies(),
+    getDocumentaryMovies(),
+  ]);
+};

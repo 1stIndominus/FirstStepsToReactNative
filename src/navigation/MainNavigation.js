@@ -1,10 +1,11 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Navbar} from './NavBar';
+import {Navbar} from '../components/NavBar';
 import {HomeScreen} from '../screens/HomeScreen';
 import {DetailScreen} from '../screens/DetailScreen';
-import {GeolocationComponent} from './geolocation/GeolocationComponent';
-import {GetContactComponent} from './getContact/GetContactComponent';
+import {GeolocationComponent} from '../components/geolocation/GeolocationComponent';
+import {GetContactComponent} from '../components/getContact/GetContactComponent';
+import {ImageList} from '../components/imageList/ImageList';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,16 @@ export const MainNavigation = () => {
       <Stack.Screen
         name="Get Contact"
         component={GetContactComponent}
+        options={{
+          headerTransparent: true,
+          header: ({navigation}) => (
+            <Navbar contact={false} navigation={navigation} />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Image List"
+        component={ImageList}
         options={{
           headerTransparent: true,
           header: ({navigation}) => (

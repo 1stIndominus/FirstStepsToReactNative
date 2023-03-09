@@ -1,6 +1,6 @@
 import React, {useRef, useCallback} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {MainNavigation} from './src/components/MainNavigation';
+import {MainNavigation} from './src/navigation/MainNavigation';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import BottomSheet, {
   BottomSheetRefProps,

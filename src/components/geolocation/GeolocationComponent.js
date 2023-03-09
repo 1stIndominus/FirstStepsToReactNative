@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
@@ -6,9 +6,8 @@ import {styles} from './styles';
 
 export const GeolocationComponent = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
-  // console.log(currentLocation);
 
-  useEffect(() => {
+  const handleOpening = useCallback(() => {
     Geolocation.getCurrentPosition(
       position => {
         const {latitude, longitude} = position.coords;
@@ -21,32 +20,38 @@ export const GeolocationComponent = () => {
     );
   }, []);
 
+  useEffect(() => {
+    handleOpening();
+  }, [handleOpening]);
+
+  if (!currentLocation) {
+    return (
+      <View style={styles.container}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <Text>Map is Loading...</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      {currentLocation ? (
-        <MapView
-          style={styles.map}
-          region={{
+      <MapView
+        style={styles.map}
+        region={{
+          latitude: currentLocation.latitude,
+          longitude: currentLocation.longitude,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}>
+        <Marker
+          coordinate={{
             latitude: currentLocation.latitude,
             longitude: currentLocation.longitude,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}>
-          <Marker
-            coordinate={{
-              latitude: currentLocation.latitude,
-              longitude: currentLocation.longitude,
-            }}
-            title="You are here"
-            description="This is your current location"
-          />
-        </MapView>
-      ) : (
-        <>
-          <ActivityIndicator size="large" color="#0000ff" />
-          <Text>Map is Loading...</Text>
-        </>
-      )}
+          }}
+          title="You are here"
+          description="This is your current location"
+        />
+      </MapView>
     </View>
   );
 };

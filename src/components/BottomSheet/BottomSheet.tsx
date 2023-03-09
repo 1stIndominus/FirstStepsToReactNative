@@ -1,5 +1,5 @@
 import {Dimensions, View} from 'react-native';
-import React, {useCallback, useImperativeHandle} from 'react';
+import React, {useCallback, useImperativeHandle, forwardRef} from 'react';
 import {Gesture, GestureDetector} from 'react-native-gesture-handler';
 import Animated, {
   Extrapolate,
@@ -23,7 +23,7 @@ export type BottomSheetRefProps = {
   isActive: () => boolean;
 };
 
-const BottomSheet = React.forwardRef<BottomSheetRefProps, BottomSheetProps>(
+const BottomSheet = forwardRef<BottomSheetRefProps, BottomSheetProps>(
   ({children}, ref) => {
     const translateY = useSharedValue(0);
     const active = useSharedValue(false);

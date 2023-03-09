@@ -7,10 +7,24 @@ export const DatePickerModal = () => {
   const [date, setDate] = useState(new Date());
   const [open, setOpen] = useState(false);
   const [chosenDate, setChosenDate] = useState('');
-  const [toggle, setToggle] = useState(false);
+  const [dataChange, setDataChange] = useState(false);
 
   const handleDateChange = useCallback(() => {
-    setToggle(true);
+    setDataChange(true);
+  }, []);
+
+  const handleConfirm = useCallback(
+    item => {
+      setOpen(false);
+      setDate(item);
+      handleDateChange();
+      setChosenDate(item.toLocaleDateString());
+    },
+    [handleDateChange],
+  );
+
+  const toggle = useCallback(() => {
+    setOpen(false);
   }, []);
 
   return (
@@ -28,19 +42,12 @@ export const DatePickerModal = () => {
         theme="dark"
         textColor={'#3396D4'}
         onDateChange={handleDateChange}
-        onConfirm={item => {
-          setOpen(false);
-          setDate(item);
-          handleDateChange();
-          setChosenDate(item.toLocaleDateString());
-        }}
-        onCancel={() => {
-          setOpen(false);
-        }}
+        onConfirm={handleConfirm}
+        onCancel={toggle}
       />
       <View style={styles.dateContainer}>
         <Text style={styles.text}>
-          {toggle ? `Chosen Date: \n ${chosenDate}` : 'Select a date'}
+          {dataChange ? `Chosen Date: \n ${chosenDate}` : 'Select a date'}
         </Text>
       </View>
     </View>

@@ -7,8 +7,10 @@ export const Error = ({
 }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{errorText1}</Text>
-      <Text style={styles.text}>{errorText2}</Text>
+      <Text style={styles.text}>
+        {`${errorText1}\n`}
+        {errorText2}
+      </Text>
     </View>
   );
 };

@@ -4,6 +4,7 @@ import fontFamilies from '../styles/fontFamilies';
 export const styles = EStyleSheet.create({
   container: {
     backgroundColor: 'lightgrey',
+    flexGrow: 1,
   },
   sliderContainer: {
     flex: 1,

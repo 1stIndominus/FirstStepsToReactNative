@@ -25,15 +25,18 @@ export const NetInfoUsage = () => {
     };
   }, []);
 
+  if (isConnected === null) {
+    return (
+      <View style={styles.container}>
+        <Text>Loading...</Text>
+        <Text style={styles.text}>You are not connected to the internet.</Text>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
-      {isConnected === null ? (
-        <Text>Loading...</Text>
-      ) : isConnected ? (
-        <Text style={styles.text}>You are connected via {connectionType}.</Text>
-      ) : (
-        <Text style={styles.text}>You are not connected to the internet.</Text>
-      )}
+      <Text style={styles.text}>You are connected via {connectionType}.</Text>
     </View>
   );
 };
