@@ -27,8 +27,8 @@ import {ShareComponent} from '../components/socialShare/ShareComponent';
 import {DoubleClickAnimation} from '../components/animation/DoubleClickAnimation';
 import {EncryptedStorageComponent} from '../components/storage/EncryptedStorage';
 import {styles} from './HomeScreenStyles';
-import {SplashScreenComponent} from './SplashScreenComponent';
 import SplashScreen from 'react-native-splash-screen';
+
 const dimentions = Dimensions.get('screen');
 
 export const HomeScreen = ({navigation}) => {
@@ -88,7 +88,7 @@ export const HomeScreen = ({navigation}) => {
   if (!loaded) {
     return (
       <>
-        <Error />
+        {/* <Error /> */}
         <ActivityIndicator size="large" color="black" />
       </>
     );
@@ -96,7 +96,6 @@ export const HomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView>
-      <SplashScreenComponent />
       {/* Upcoming Movies */}
       <ScrollView style={styles.container}>
         {moviesImages && (

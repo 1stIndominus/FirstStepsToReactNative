@@ -1,13 +1,5 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  Dimensions,
-  FlatList,
-  View,
-  Image,
-  ScrollView,
-} from 'react-native';
+import React, {useRef, useCallback} from 'react';
+import {SafeAreaView, StyleSheet, Animated} from 'react-native';
 
 const images = [
   {id: 1, source: require('../../../assets/images/2.png')},
@@ -21,51 +13,74 @@ const images = [
   {id: 9, source: require('../../../assets/images/9.png')},
 ];
 
-const SPACING = 10;
-const IMAGE_SIZE = 400;
-const IMAGE_HEIGHT = Dimensions.get('window').height - IMAGE_SIZE;
+const MARGIN_TOP_ITEM = 20;
+const PADDING_ITEM = 0;
+const IMG_HEIGHT = 300;
+const SIZE_OF_ITEM = IMG_HEIGHT + PADDING_ITEM * 2 + MARGIN_TOP_ITEM;
+const MARGIN_EFFECT = IMG_HEIGHT - 100;
 
 export const ImageList = () => {
+  const Yscroll = useRef(new Animated.Value(0)).current;
+
+  const renderItem = useCallback(
+    ({item, index}) => {
+      const marginTop = Yscroll.interpolate({
+        inputRange: [
+          -1,
+          MARGIN_EFFECT,
+          SIZE_OF_ITEM * index + MARGIN_EFFECT,
+          SIZE_OF_ITEM * (index + 2),
+        ],
+        outputRange: [0, 0, 0, -10 * MARGIN_TOP_ITEM],
+      });
+      return (
+        <Animated.View
+          style={[
+            styles.item,
+            {
+              transform: [{translateY: marginTop}],
+            },
+          ]}>
+          <Animated.Image style={styles.image} source={item.source} />
+        </Animated.View>
+      );
+    },
+    [Yscroll],
+  );
+
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
+      <Animated.FlatList
         data={images}
-        renderItem={({item}) => (
-          <ScrollView vertical style={styles.containerWrapper}>
-            <View style={styles.imageContainer}>
-              <Image style={styles.image} source={item.source} />
-            </View>
-          </ScrollView>
-        )}
         keyExtractor={item => item.id}
+        renderItem={renderItem}
         snapToAlignment="start"
         decelerationRate={'fast'}
-        snapToInterval={Dimensions.get('window').height - IMAGE_SIZE + SPACING}
+        snapToInterval={SIZE_OF_ITEM}
+        contentContainerStyle={{
+          padding: 20,
+        }}
+        onScroll={Animated.event(
+          [{nativeEvent: {contentOffset: {y: Yscroll}}}],
+          {useNativeDriver: true},
+        )}
       />
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  image: {
+    width: '100%',
+    height: IMG_HEIGHT,
+    borderRadius: 10,
+  },
+  item: {
+    marginTop: MARGIN_TOP_ITEM,
+    padding: PADDING_ITEM,
+  },
   container: {
     flex: 1,
-    backgroundColor: 'grey',
-  },
-  containerWrapper: {
-    height: IMAGE_HEIGHT,
-    width: '100%',
-    backgroundColor: 'grey',
-    marginBottom: SPACING,
-    paddingHorizontal: 20,
-  },
-  imageContainer: {
-    width: '100%',
-    height: '100%',
-  },
-  image: {
-    flex: 1,
-    width: '100%',
-    height: IMAGE_HEIGHT,
-    borderRadius: 20,
+    backgroundColor: '#E1E8EE',
   },
 });

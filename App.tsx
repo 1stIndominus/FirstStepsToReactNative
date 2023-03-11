@@ -1,4 +1,4 @@
-import React, {useRef, useCallback} from 'react';
+import React, {useRef, useCallback, useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {MainNavigation} from './src/navigation/MainNavigation';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
@@ -6,8 +6,11 @@ import BottomSheet, {
   BottomSheetRefProps,
 } from './src/components/BottomSheet/BottomSheet';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {SplashScreenComponent} from './src/screens/SplashScreenComponent';
 
 export function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   const ref = useRef<BottomSheetRefProps>(null);
 
   const onPress = useCallback(() => {
@@ -18,6 +21,10 @@ export function App() {
       ref?.current?.scrollTo(-1000);
     }
   }, []);
+
+  if (isLoading) {
+    return <SplashScreenComponent setIsLoading={setIsLoading} />;
+  }
 
   return (
     <>
