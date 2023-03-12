@@ -15,7 +15,7 @@ const images = [
 
 const MARGIN_TOP_ITEM = 20;
 const PADDING_ITEM = 0;
-const IMG_HEIGHT = 300;
+const IMG_HEIGHT = 500;
 const SIZE_OF_ITEM = IMG_HEIGHT + PADDING_ITEM * 2 + MARGIN_TOP_ITEM;
 const MARGIN_EFFECT = IMG_HEIGHT - 100;
 

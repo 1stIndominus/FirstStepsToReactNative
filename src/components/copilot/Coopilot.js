@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import {copilot, walkthroughable, CopilotStep} from 'react-native-copilot';
 import {Text, View, SafeAreaView} from 'react-native';
 import {styles} from './styles';
 
 export const CopilotComponent = props => {
-  const [secondStep] = useState(true);
+  const [secondStep, setSecondStep] = useState(true);
   const WalkthroughableText = walkthroughable(Text);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     props.start();
   }, []);
 

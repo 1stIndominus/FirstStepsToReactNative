@@ -6,6 +6,8 @@ import {DetailScreen} from '../screens/DetailScreen';
 import {GeolocationComponent} from '../components/geolocation/GeolocationComponent';
 import {GetContactComponent} from '../components/getContact/GetContactComponent';
 import {ImageList} from '../components/imageList/ImageList';
+import {SectionListComponent} from '../components/imageList/SectionListComponent';
+import {ContentView} from '../components/webView/webView.examples';
 
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +57,26 @@ export const MainNavigation = () => {
       <Stack.Screen
         name="Image List"
         component={ImageList}
+        options={{
+          headerTransparent: true,
+          header: ({navigation}) => (
+            <Navbar contact={false} navigation={navigation} />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Section List"
+        component={SectionListComponent}
+        options={{
+          headerTransparent: true,
+          header: ({navigation}) => (
+            <Navbar contact={false} navigation={navigation} />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="WebView"
+        component={ContentView}
         options={{
           headerTransparent: true,
           header: ({navigation}) => (

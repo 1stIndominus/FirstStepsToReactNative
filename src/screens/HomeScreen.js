@@ -13,12 +13,10 @@ import FlashMessage from 'react-native-flash-message';
 import {getData} from '../services/fetchData';
 import {typeOfConection} from '../components/netInfo/NetInfoUsage';
 import {DeviceInfoDetail} from '../components/deviceInfo/DeviceInfoDetail';
-import {Error} from '../components/Error';
 import {NetInfoUsage} from '../components/netInfo/NetInfoUsage';
 import {SliderBox} from 'react-native-image-slider-box';
 import {MovieList} from '../components/MovieList';
 import {showMessage} from 'react-native-flash-message';
-// import {Animation} from '../components/animation/Animation';
 import {RenderHtmlText} from '../components/RenderHTML/RenderHtmlText';
 import {DatePickerModal} from '../components/datePicker/DatePicker';
 import {ClipboardExample} from '../components/clipboard/ClipboardComponent';
@@ -35,34 +33,22 @@ export const HomeScreen = ({navigation}) => {
   const [moviesImages, setMoviesImages] = useState();
   const [popularMovies, setPopularMovies] = useState();
   const [popularTv, setPopularTv] = useState();
-  const [familyMovies, setFamilyMovies] = useState();
-  const [documentaryMovies, setDocumentaryMovies] = useState();
   const [loaded, setLoaded] = useState(false);
 
   const handleGetDataFromServices = useCallback(() => {
     getData()
-      .then(
-        ([
-          upcomingMoviesData,
-          popularMoviesData,
-          popularTvData,
-          familyMoviesData,
-          documentaryMoviesData,
-        ]) => {
-          const moviesImagesArray = [];
-          upcomingMoviesData.forEach(movie => {
-            moviesImagesArray.push(
-              'https://image.tmdb.org/t/p/w500' + movie.poster_path,
-            );
-          });
+      .then(([upcomingMoviesData, popularMoviesData, popularTvData]) => {
+        const moviesImagesArray = [];
+        upcomingMoviesData.forEach(movie => {
+          moviesImagesArray.push(
+            'https://image.tmdb.org/t/p/w500' + movie.poster_path,
+          );
+        });
 
-          setMoviesImages(moviesImagesArray);
-          setPopularMovies(popularMoviesData);
-          setPopularTv(popularTvData);
-          setFamilyMovies(familyMoviesData);
-          setDocumentaryMovies(documentaryMoviesData);
-        },
-      )
+        setMoviesImages(moviesImagesArray);
+        setPopularMovies(popularMoviesData);
+        setPopularTv(popularTvData);
+      })
       .catch(err => {
         console.log(err);
       })
@@ -86,12 +72,7 @@ export const HomeScreen = ({navigation}) => {
   }, [handleGetDataFromServices]);
 
   if (!loaded) {
-    return (
-      <>
-        {/* <Error /> */}
-        <ActivityIndicator size="large" color="black" />
-      </>
-    );
+    return <ActivityIndicator size="large" color="black" />;
   }
 
   return (
@@ -123,10 +104,20 @@ export const HomeScreen = ({navigation}) => {
           <ShareComponent />
         </View>
 
-        <View style={styles.contacts}>
+        <View style={styles.contactsWrapper}>
           <Button
             onPress={() => navigation.navigate('Image List')}
             title="Image List"
+            color="#97D9E1"
+          />
+          <Button
+            onPress={() => navigation.navigate('Section List')}
+            title="Section List"
+            color="#97D9E1"
+          />
+          <Button
+            onPress={() => navigation.navigate('WebView')}
+            title="WebView"
             color="#97D9E1"
           />
         </View>
@@ -148,26 +139,6 @@ export const HomeScreen = ({navigation}) => {
               navigation={navigation}
               title={'Popular TV Shows'}
               content={popularTv}
-            />
-          </View>
-        )}
-        {/* Family Movies */}
-        {familyMovies && (
-          <View style={styles.carousel}>
-            <MovieList
-              navigation={navigation}
-              title={'Family Movies'}
-              content={familyMovies}
-            />
-          </View>
-        )}
-        {/* Documentary Movies */}
-        {documentaryMovies && (
-          <View style={styles.carousel}>
-            <MovieList
-              navigation={navigation}
-              title={'Documentary Movies'}
-              content={documentaryMovies}
             />
           </View>
         )}
