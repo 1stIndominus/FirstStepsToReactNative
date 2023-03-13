@@ -1,0 +1,16 @@
+{
+  "translation": {
+    "appName": "Movies",
+    "welcome": "Hello",
+    "titleOne": "Made for you",
+    "titleTwo": "Punk and hardcore",
+    "titleThree": "Based on your recent listening",
+    "text": "Text that is displayed by localization",
+    "phoneDetails": {
+      "phoneId": "This is phone Id",
+      "onClickId": "Click Show Id button to see the Id of Device",
+      "phoneModel": "This is Device Model",
+      "onClickModel": "Click Show Model button to see the model of Device"
+    }
+  }
+}

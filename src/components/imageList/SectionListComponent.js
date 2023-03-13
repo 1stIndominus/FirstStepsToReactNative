@@ -7,11 +7,24 @@ import {
   SafeAreaView,
   Image,
   FlatList,
+  StatusBar,
 } from 'react-native';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {useColorScheme} from 'react-native';
+import {useTranslation} from 'react-i18next';
 
 const ListItem = ({item}) => {
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
   return (
     <View style={styles.item}>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
       <Image
         source={{
           uri: item.uri,
@@ -19,37 +32,66 @@ const ListItem = ({item}) => {
         style={styles.itemPhoto}
         resizeMode="cover"
       />
-      <Text style={styles.itemText}>{item.text}</Text>
+      <Text
+        style={[
+          styles.itemText,
+          {backgroundColor: backgroundStyle.backgroundColor},
+        ]}>
+        {item.text}
+      </Text>
     </View>
   );
 };
 
 export const SectionListComponent = () => {
+  const {t} = useTranslation();
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+  };
+
   return (
-    <View style={styles.container}>
-      <SafeAreaView style={{flex: 1}}>
-        <SectionList
-          contentContainerStyle={{paddingHorizontal: 10}}
-          stickySectionHeadersEnabled={false}
-          sections={SECTIONS}
-          renderSectionHeader={({section}) => (
-            <>
-              <Text style={styles.sectionHeader}>{section.title}</Text>
-              <FlatList
-                horizontal
-                data={section.data}
-                renderItem={({item}) => <ListItem item={item} />}
-                showsHorizontalScrollIndicator={false}
-              />
-            </>
-          )}
-          renderItem={({item, section}) => {
-            return null;
-            // return <ListItem item={item} />;
-          }}
-        />
-      </SafeAreaView>
-    </View>
+    <>
+      <StatusBar
+        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+        backgroundColor={backgroundStyle.backgroundColor}
+      />
+      <View
+        style={[
+          styles.container,
+          {backgroundColor: backgroundStyle.backgroundColor},
+        ]}>
+        <SafeAreaView style={{flex: 1}}>
+          <SectionList
+            contentContainerStyle={{paddingHorizontal: 10}}
+            stickySectionHeadersEnabled={false}
+            sections={SECTIONS}
+            renderSectionHeader={({section}) => (
+              <>
+                <Text
+                  style={[
+                    styles.sectionHeader,
+                    {color: isDarkMode ? Colors.lighter : Colors.darker},
+                  ]}>
+                  {t('titleThree')}
+                </Text>
+                <FlatList
+                  horizontal
+                  data={section.data}
+                  renderItem={({item}) => <ListItem item={item} />}
+                  showsHorizontalScrollIndicator={false}
+                />
+              </>
+            )}
+            renderItem={({item, section}) => {
+              return null;
+              // return <ListItem item={item} />;
+            }}
+          />
+        </SafeAreaView>
+      </View>
+    </>
   );
 };
 
@@ -152,12 +194,10 @@ const SECTIONS = [
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
   },
   sectionHeader: {
     fontWeight: '800',
     fontSize: 18,
-    color: '#f4f4f4',
     marginTop: 20,
     marginBottom: 5,
   },
@@ -169,7 +209,6 @@ const styles = StyleSheet.create({
     height: 200,
   },
   itemText: {
-    color: 'rgba(255, 255, 255, 0.5)',
     marginTop: 5,
   },
 });

@@ -3,8 +3,10 @@ import {SafeAreaView, View, Text, TouchableOpacity} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 // import Config from 'react-native-config';
 import {styles} from './styles';
+import {useTranslation} from 'react-i18next';
 
 export const DeviceInfoDetail = () => {
+  const {t} = useTranslation();
   const [deviceId, setDeviceId] = useState('');
   const [deviceModel, setDeviceModel] = useState('');
 
@@ -25,13 +27,13 @@ export const DeviceInfoDetail = () => {
         <Text style={styles.title}>Click to see Device Info</Text>
         <Text>
           {deviceId
-            ? `This is phone Id: ${deviceId}`
-            : 'Click Show Id button to see the Id of Device'}
+            ? `${t('phoneDetails.phoneId')}: ${deviceId}`
+            : t('phoneDetails.onClickId')}
         </Text>
         <Text>
           {deviceModel
-            ? `This is Device Model: ${deviceModel}`
-            : 'Click Show Model button to see the model of Device'}
+            ? `${t('phoneDetails.phoneModel')}: ${deviceModel}`
+            : t('phoneDetails.onClickModel')}
         </Text>
       </View>
 

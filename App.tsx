@@ -6,10 +6,10 @@ import BottomSheet, {
   BottomSheetRefProps,
 } from './src/components/BottomSheet/BottomSheet';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-// import {SplashScreenComponent} from './src/screens/SplashScreenComponent';
+import {SplashScreenComponent} from './src/screens/SplashScreenComponent';
 
 export function App() {
-  // const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const ref = useRef<BottomSheetRefProps>(null);
 
@@ -22,9 +22,9 @@ export function App() {
     }
   }, []);
 
-  // if (isLoading) {
-  //   return <SplashScreenComponent setIsLoading={setIsLoading} />;
-  // }
+  if (isLoading) {
+    return <SplashScreenComponent setIsLoading={setIsLoading} />;
+  }
 
   return (
     <>
